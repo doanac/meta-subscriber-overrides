@@ -1,0 +1,11 @@
+[Unit]
+Description=Foundries.io serviceability daemon
+After=network.target
+
+[Service]
+RestartSec=10
+Restart=always
+ExecStart=/usr/bin/fioras run-server
+
+[Install]
+WantedBy=multi-user.target

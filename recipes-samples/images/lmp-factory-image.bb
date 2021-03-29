@@ -19,6 +19,7 @@ IMAGE_FEATURES += "ssh-server-openssh"
 
 CORE_IMAGE_BASE_INSTALL += " \
     byobu \
+    fioras \
     kernel-modules \
     networkmanager-nmcli \
     git \
