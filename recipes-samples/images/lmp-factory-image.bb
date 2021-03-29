@@ -18,6 +18,7 @@ require recipes-samples/images/lmp-feature-sbin-path-helper.inc
 IMAGE_FEATURES += "ssh-server-openssh"
 
 CORE_IMAGE_BASE_INSTALL += " \
+    byobu \
     kernel-modules \
     networkmanager-nmcli \
     git \
