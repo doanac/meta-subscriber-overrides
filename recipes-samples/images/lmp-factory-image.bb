@@ -21,6 +21,7 @@ CORE_IMAGE_BASE_INSTALL += " \
     byobu \
     fioras \
     kernel-modules \
+    lmp-device-auto-register \
     networkmanager-nmcli \
     git \
     vim \
