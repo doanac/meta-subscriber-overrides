@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+if [ -f /var/sota/sql.db ] ; then
+	echo "$0: ERROR: Device appears to already be registered"
+	exit 1
+fi
+
+# Done in 2 parts. This first part will remove trailing \n's and make
+# the output all space separated. The 2nd part makes it comma separated.
+[ -d /var/sota/compose-apps ] && APPS=$(ls /var/sota/compose-apps)
+APPS=$(echo ${APPS} | tr ' ' ',')
+if [ -n "${APPS}" ] ; then
+	echo "$0: Registering with default apps = ${APPS}"
+	APPS="-a ${APPS}"
+else
+	echo "$0: Registering with all available apps"
+fi
+
+DEVICE_API="http://doanac.dynu.net:8181/sign" \
+PRODUCTION=1 \
+	/usr/bin/lmp-device-register --start-daemon=0 -T na ${APPS}
+fioconfig check-in
+systemctl start aktualizr-lite
+systemctl start fioconfig
