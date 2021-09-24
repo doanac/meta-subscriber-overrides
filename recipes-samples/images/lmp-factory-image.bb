@@ -15,6 +15,7 @@ require recipes-samples/images/lmp-feature-wifi.inc
 require recipes-samples/images/lmp-feature-ota-utils.inc
 require recipes-samples/images/lmp-feature-sbin-path-helper.inc
 
+SOTA_CLIENT = "andy-sota-client"
 IMAGE_FEATURES += "ssh-server-openssh"
 
 CORE_IMAGE_BASE_INSTALL += " \
@@ -25,6 +26,7 @@ CORE_IMAGE_BASE_INSTALL += " \
     networkmanager-nmcli \
     git \
     vim \
+    andy-sota-client \
     packagegroup-core-full-cmdline-utils \
     packagegroup-core-full-cmdline-extended \
     packagegroup-core-full-cmdline-multiuser \
